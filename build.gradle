@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.5'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'jacoco'
 }
 
 group = 'com.example'
@@ -53,4 +54,20 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+jacoco {
+	toolVersion = "0.8.8" // Asegúrate de usar la última versión
+}
+
+jacocoTestReport {
+	reports {
+		xml.required.set(true) // Cambiar 'enabled' por 'required.set'
+		html.required.set(true)
+	}
+}
+
+test {
+	finalizedBy jacocoTestReport // Genera el informe después de las pruebas
+}
+
 

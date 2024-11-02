@@ -1,7 +1,9 @@
 package com.example.parcialBackendYanardi;
 
+import com.example.parcialBackendYanardi.DTO.DTOStats;
 import com.example.parcialBackendYanardi.DTO.DtoAdnInput;
 import com.example.parcialBackendYanardi.Servicios.ADNServicio;
+import com.example.parcialBackendYanardi.Servicios.StatsServicio;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import org.junit.jupiter.api.BeforeEach;
@@ -115,12 +117,38 @@ public class SimpleTest {
         assertTrue(booleano);
     }
 
+    @Test public void mutante2(){
+        String[] adn = {"AAAAAGG","AGCATGT", "GGCGGAA", "TTAGTTC", "AAGGTCT", "ATGCACG", "AGTTGCC"};
+
+        boolean booleano = adnServicio.isMutant(adn);
+
+        assertTrue(booleano);
+    }
+
     @Test public void noMutante(){
         String[] adn = {"AAAC", "TGTT", "ATCG", "CGAT"};
 
         boolean booleano = adnServicio.isMutant(adn);
 
         assertFalse(booleano);
+    }
+
+    @Autowired
+    private StatsServicio statsServicio;
+
+    @Test
+    public void testearStatsServicio(){
+        String[] adn1 = {"AAAAAGG","AGCATGT", "GGCGGAA", "TTAGTTC", "AAGGTCT", "ATGCACG", "AGTTGCC"};
+        String[] adn2 = {"AAAC", "TGTT", "ATCG", "CGAT"};
+        String[] adn3 = {"ACGTA", "CCTAT", "GAGGC", "TACGT", "TTCCG"};
+
+        adnServicio.analizarAdn(adn1);
+        adnServicio.analizarAdn(adn2);
+        adnServicio.analizarAdn(adn3);
+
+        DTOStats dtoStats = statsServicio.obtenerEstadisticas();
+
+        assertEquals(0.5, dtoStats.getRatio(), 0.001);
     }
 
 }
