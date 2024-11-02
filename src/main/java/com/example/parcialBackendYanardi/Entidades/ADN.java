@@ -6,7 +6,6 @@ import org.hibernate.envers.Audited;
 
 import java.io.Serializable;
 
-@Audited
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
