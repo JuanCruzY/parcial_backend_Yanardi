@@ -66,6 +66,10 @@ usted, sin embargo, tenga en cuenta que si la cantidad de caracteres de cada una
 a la cantidad de candenas (es decir la matriz no es cuadrada), y si los caracteres no son o "A" o "C" o
 "G" o "T" la API le devolverá un Bad Request.
 
+En caso de que no funcione, deberá configurar las request de forma manual. 
+
+A continuación está la URL y los endpoints
+
   - URL Base: http://localhost:8080 
 
   - Endpoint /mutant: http://localhost:8080/parcial/backend/adn/mutant
@@ -73,11 +77,45 @@ a la cantidad de candenas (es decir la matriz no es cuadrada), y si los caracter
   - Endpoint /stats: http://localhost:8080/parcial/backend/estadisticas/stats
 
 5. Ejecutar Pruebas
+
 "./gradlew test"
 
-6. Ver Reporte de Cobertura de Código
+7. Ver Reporte de Cobertura de Código
+
 "./gradlew jacocoTestReport" El reporte de cobertura estará disponible en: build/reports/jacoco/test/html/index.html Las URLs de la API son:
 
-URL Base: https://parcial-backend-yanardi.onrender.com/)
-Endpoint /mutant: https://garcianieto-parical-back-3k9.onrender.com/mutant
-Endpoint /stats: https://garcianieto-parical-back-3k9.onrender.com/stats
+## Instrucciones de Ejecución en Render
+
+1. Abrir la API en Render.
+
+Presione en el siguiente enlace y espere a que cargue la página:
+
+- URL Base: https: //parcial-backend-yanardi.onrender.com/
+
+2. Ejecutar la API desde Postman
+
+Deberá importar las request contenidas en el archivo Mutante Render.postman_collection subido en la entrega del integrador, en el campus.
+
+- URL Base: https://parcial-backend-yanardi.onrender.com/
+
+En el caso del GET obtenerEstadisticas, con presionar el send ya será suficiente.
+Pero, en el caso del POST analizarAdn deberá colocar en el body un JSON de la siguiente forma:
+
+{
+    "dna":["AAAA", "CCCC", "AAAA", "AAAA"]
+}
+
+Evidentemente las cadenas de caracteres pueden ser del tamaño que usted quiera, y la cantidad de cadenas también las puede elegir
+usted, sin embargo, tenga en cuenta que si la cantidad de caracteres de cada una de las cadenas no es igual
+a la cantidad de candenas (es decir la matriz no es cuadrada), y si los caracteres no son o "A" o "C" o
+"G" o "T" la API le devolverá un Bad Request.
+
+En caso de que no funcione, deberá configurar las request de forma manual. 
+
+A continuación está la URL y los endpoints:
+
+- URL Base: https://parcial-backend-yanardi.onrender.com/
+
+- Endpoint /mutant: https://parcial-backend-yanardi.onrender.com/parcial/backend/adn/mutant
+
+- Endpoint /stats: https://parcial-backend-yanardi.onrender.com/parcial/backend/estadisticas/stats
