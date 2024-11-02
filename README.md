@@ -102,7 +102,7 @@ En el caso del GET obtenerEstadisticas, con presionar el send ya será suficient
 Pero, en el caso del POST analizarAdn deberá colocar en el body un JSON de la siguiente forma:
 
 {
-    "dna":["AAAA", "CCCC", "AAAA", "AAAA"]
+    "dna":["CCCC", "AAAA", "AAAA", "AAAA"]
 }
 
 Evidentemente las cadenas de caracteres pueden ser del tamaño que usted quiera, y la cantidad de cadenas también las puede elegir
