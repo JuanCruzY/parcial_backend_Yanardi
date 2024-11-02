@@ -22,7 +22,7 @@ public class StatsController {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.obtenerEstadisticas());
         } catch (Exception e) {
-            e.printStackTrace(); // Esto imprimirá el stack trace en la consola para obtener más detalles del error
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("{\"error\":\"Error, por favor intente más tarde\"}");
         }
     }

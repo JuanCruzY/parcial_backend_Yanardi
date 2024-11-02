@@ -26,7 +26,6 @@ sourceSets {
 	}
 }
 
-
 repositories {
 	mavenCentral()
 }
@@ -44,7 +43,9 @@ dependencies {
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 	implementation 'org.json:json:20210307'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.5' // Asegúrate de incluir la versión
+	testImplementation 'org.junit.jupiter:junit-jupiter-api' // JUnit 5 API
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine' // JUnit 5 Engine
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
@@ -52,3 +53,4 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
